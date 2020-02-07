@@ -3,6 +3,7 @@ package parsing;
 import java.util.*;
 
 import author.Author;
+import logging.Logger;
 
 public class AuthorParser implements Parser<Author> {
     
@@ -15,13 +16,19 @@ public class AuthorParser implements Parser<Author> {
      * Delimiter when parsing "{lastname}, {firstname}"
      */
     private static final String BACKWARD_DELIMITER = ",";
+
+    /**
+     * A logger for logging
+     */
+    private Logger log;
     
-    public AuthorParser() {
-        
+    public AuthorParser(Logger log) {
+        this.log = log;
     }
 
     @Override
     public Author parse(String authorName) {
+        this.log.debug("Parser input: " + authorName);
         List<String> nameList;
         String firstNames;
         String lastName;

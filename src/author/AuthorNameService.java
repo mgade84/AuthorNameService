@@ -30,7 +30,7 @@ public class AuthorNameService {
             try {
                 Stream<String> lines = Files.lines(Paths.get(inputFileName));
                 
-                Parser<Author> authorParser = new AuthorParser();
+                Parser<Author> authorParser = new AuthorParser(log);
                 lines.forEach(new Consumer<String>() {
 
                     @Override
