@@ -59,13 +59,16 @@ public class AuthorNameService {
      * @param baseUri Base URI for the web server
      */
     private static void startWebServer(final String baseUri) {
+        Logger log = new SysoutLogger(Severity.ERROR);
+        log.info("Starting web server...");
+        
         // Create a resource config that scans for JAX-RS resources and providers in rest package
         ResourceConfig resourceConfig = new ResourceConfig().packages("rest");
 
         // Create and start a new instance of grizzly web server
         GrizzlyHttpServerFactory.createHttpServer(URI.create(baseUri), resourceConfig);
         
-        System.out.println("Started web server at " + baseUri);
+        log.info("Started web server at " + baseUri);
     }
 
 }
