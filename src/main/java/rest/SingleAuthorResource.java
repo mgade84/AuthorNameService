@@ -8,15 +8,14 @@ import com.google.gson.Gson;
 
 import author.Author;
 import logging.Logger.Severity;
+import parsing.*;
 import logging.SysoutLogger;
-import parsing.AuthorParser;
-import parsing.Parser;
 
 /**
  * Resource for handling author name requests
  */
 @Path("author")
-public class AuthorResource {
+public class SingleAuthorResource {
     
     private Gson gson = new Gson();
 
