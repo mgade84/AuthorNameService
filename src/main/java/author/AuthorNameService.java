@@ -44,6 +44,8 @@ public class AuthorNameService {
                     }
                 });
                 
+                lines.close();
+                
             } catch (IOException e) {
                 log.error(String.format("Could not read file [%s]", e.toString()));
             }
