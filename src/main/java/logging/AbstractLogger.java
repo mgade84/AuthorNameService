@@ -1,5 +1,7 @@
 package logging;
 
+import logging.Logger;
+
 /**
  * Abstract implementation of the {@link Logger} interface
  * @author Mikkel Gade

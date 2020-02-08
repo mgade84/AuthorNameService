@@ -1,5 +1,8 @@
 package logging;
 
+import logging.AbstractLogger;
+import logging.Logger.Severity;
+
 /**
  * Logger for writing to System.out
  * @author Mikkel Gade

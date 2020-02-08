@@ -1,12 +1,17 @@
 package author;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import author.Author;
 import logging.Logger;
 import logging.Logger.Severity;
 import logging.SysoutLogger;
@@ -44,9 +49,26 @@ public class AuthorNameService {
             }
             
         } else {
-            // TODO
+            startWebServer("http://localhost:8080/");
         }
 
+    }
+    
+    /**
+     * Starts a new web server instance
+     * @param baseUri Base URI for the web server
+     */
+    private static void startWebServer(final String baseUri) {
+        Logger log = new SysoutLogger(Severity.ERROR);
+        log.info("Starting web server...");
+        
+        // Create a resource config that scans for JAX-RS resources and providers in rest package
+        ResourceConfig resourceConfig = new ResourceConfig().packages("rest");
+
+        // Create and start a new instance of grizzly web server
+        GrizzlyHttpServerFactory.createHttpServer(URI.create(baseUri), resourceConfig);
+        
+        log.info("Started web server at " + baseUri);
     }
 
 }
