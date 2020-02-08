@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import author.Author;
 import logging.Logger;
 import logging.Logger.Severity;
 import logging.SysoutLogger;

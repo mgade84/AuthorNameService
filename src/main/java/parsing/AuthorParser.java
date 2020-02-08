@@ -4,6 +4,7 @@ import java.util.*;
 
 import author.Author;
 import logging.Logger;
+import parsing.Parser;
 
 public class AuthorParser implements Parser<Author> {
     
