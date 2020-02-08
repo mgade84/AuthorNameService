@@ -1,8 +1,18 @@
+FROM maven:3.3.9-jdk-8
 
-FROM openjdk:8
-COPY . /usr/src/authornameservice
-WORKDIR /usr/src/authornameservice
-RUN mkdir dist
-RUN javac -d dist -sourcepath src src/author/AuthorNameService.java
-CMD java -cp dist author.AuthorNameService names.txt
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
 
+# install dependencies
+COPY pom.xml /opt/app/
+RUN mvn install
+
+# rest of the project
+COPY src /opt/app/src
+RUN mvn package
+
+# local port
+EXPOSE 8080
+
+# run service
+CMD ["mvn", "exec:java"]

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -23,6 +24,8 @@ import parsing.Parser;
  * @author Mikkel Gade
  */
 public class AuthorNameService {
+    
+    public static final String BASE_URI = "http://0.0.0.0:8080/";
 
     public static void main(String[] args) {
         Logger log = new SysoutLogger(Severity.DEBUG);
@@ -51,16 +54,15 @@ public class AuthorNameService {
             }
             
         } else {
-            startWebServer("http://localhost:8080/");
+            startWebServer();
         }
 
     }
     
     /**
      * Starts a new web server instance
-     * @param baseUri Base URI for the web server
      */
-    private static void startWebServer(final String baseUri) {
+    private static void startWebServer() {
         Logger log = new SysoutLogger(Severity.ERROR);
         log.info("Starting web server...");
         
@@ -68,9 +70,9 @@ public class AuthorNameService {
         ResourceConfig resourceConfig = new ResourceConfig().packages("rest");
 
         // Create and start a new instance of grizzly web server
-        GrizzlyHttpServerFactory.createHttpServer(URI.create(baseUri), resourceConfig);
+        HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), resourceConfig);
         
-        log.info("Started web server at " + baseUri);
+        log.info("Started web server at " + BASE_URI);
     }
 
 }

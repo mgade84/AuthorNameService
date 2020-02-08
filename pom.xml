@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>authornameservice</groupId>
 	<artifactId>AuthorNameService</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>AuthorNameService</name>
 
@@ -23,10 +23,6 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-grizzly2-http</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-moxy</artifactId>
 		</dependency>
 		<!-- Gson: Java to Json conversion -->
 		<dependency>
@@ -68,7 +64,7 @@
 	</build>
 
 	<properties>
-		<jersey.version>2.17</jersey.version>
+		<jersey.version>2.22.2</jersey.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 </project>
