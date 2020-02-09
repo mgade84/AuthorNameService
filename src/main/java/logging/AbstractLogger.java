@@ -42,6 +42,11 @@ public abstract class AbstractLogger implements Logger {
         return this.severity;
     }
     
+    /**
+     * Method for writing the log
+     * @param severity The severity
+     * @param message The message to write
+     */
     protected abstract void writeLog(Severity severity, String message);
 
 }

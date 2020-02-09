@@ -14,7 +14,8 @@ import parsing.*;
 import logging.SysoutLogger;
 
 /**
- * Resource for handling author name requests
+ * Resource for handling multi author name requests
+ * @author Mikkel Gade
  */
 @Path("multiauthor")
 public class MultiAuthorResource {

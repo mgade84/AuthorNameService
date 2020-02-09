@@ -13,6 +13,7 @@ import logging.SysoutLogger;
 
 /**
  * Resource for handling author name requests
+ * @author Mikkel Gade
  */
 @Path("author")
 public class SingleAuthorResource {
